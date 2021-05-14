@@ -1,5 +1,8 @@
 {
   "name": "PIA_1",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

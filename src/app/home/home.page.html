@@ -1,20 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Sus citas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="content">
+  <ion-list lines="full">
+    <form [formGroup]="mainForm" (ngSubmit)="storeData()">
+      <ion-item>
+        <ion-label position="floating">Usuario_id</ion-label>
+        <ion-input formControlName="usuario_id" type="text" required></ion-input>
+      </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-input formControlName="fecha" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Hora</ion-label>
+        <ion-input formControlName="hora" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Síntomas</ion-label>
+        <ion-input formControlName="sintomas" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="round" expand="block" color="tertiary">
+            Agendar Cita
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+
+    <ion-list>
+    <ion-list-header>
+      Citas
+    </ion-list-header>
+
+    <ion-item lines="inset" *ngFor="let data of Data">
+      <ion-label>
+        <!-- <h5>{{data.usuario_id}}</h5> -->
+        <h5>Nombre: {{data.nombre}}</h5>
+        <!-- <p>{{data.nombre}}</p> -->
+        <p>Fecha: {{data.fecha}}</p>
+        <p>Hora: {{data.hora}}</p>
+        <p>Sintomas: {{data.sintomas}}</p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-icon name="create" style="zoom:2.0" [routerLink]="['/citas/', data.id]"></ion-icon>
+        <ion-icon name="trash" style="zoom:2.0" (click)="deleteCita(data.id)"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
