@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { receta } from '../recetas/receta.model';
 import { NuevaRecetaService } from './nueva-receta.service'
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -20,17 +19,9 @@ export class NuevaRecetaPage implements OnInit {
       private recetasService: RecetasService
     ) { }
 
-  // recetas: receta = {
-  //   // id: null,
-  //   // titulo: 'TITULO',
-  //   // ingredientes: 'INGREDIENTES',
-  //   // procedimiento: 'INSTRUCCIONES',
-  //   // Imagen: 'test.png',
-  // }
-
   recipeForm: FormGroup;
-  Data: any[] = [];
-  previsualizacion: string = undefined;
+  // Data: any[] = [];
+  previsualizacion: string = 'https://www.drupal.org/files/issues/2019-07-21/missing.png';
 
   ngOnInit(){
     //construye el form inicianizandolo con valores vacíos
@@ -73,6 +64,7 @@ export class NuevaRecetaPage implements OnInit {
       });
     // }
 
+    this.router.navigateByUrl('');
 
   }
 
@@ -84,20 +76,21 @@ export class NuevaRecetaPage implements OnInit {
 
   public archivos: any = []
 
-  capturarFile(event): any {
-    const archivoCapturado = event.target.files[0]
-    this.nuevaRecetaService.extraerBase64(archivoCapturado).then((imagen: any) => {
-    this.previsualizacion = imagen.base;
+  // capturarFile(event): any {
+  //   const archivoCapturado = event.target.files[0]
+  //   this.nuevaRecetaService.extraerBase64(archivoCapturado).then((imagen: any) => {
+  //   this.previsualizacion = imagen.base;
 
-      console.log(imagen.base);
-      return imagen.base;
-    })
-    this.archivos.push(archivoCapturado)
-    //
-    // console.log(event.target.files);
-  }
+  //     console.log(imagen.base);
+  //     return imagen.base;
+  //   })
+  //   this.archivos.push(archivoCapturado)
+  //   //
+  //   // console.log(event.target.files);
+  // }
 
   async takePhoto(){
     const photo = await this.cameraService.getPhoto()
+    this.previsualizacion = 'data:image/jpeg;base64,'+ photo.base64String;
   }
 }

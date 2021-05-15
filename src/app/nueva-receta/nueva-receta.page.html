@@ -31,14 +31,7 @@
         <ion-input formControlName="procedimiento" type="text" required></ion-input>
       </ion-item>
 
-      <input class="input-file" (change)="capturarFile($event)" type="file" accept="image/*">
-      <ion-row>
-        <ion-col>
-          <ion-button (click)="takePhoto()" type="input" color="primary" shape="round" expand="block" color="tertiary">
-            Tomar foto
-          </ion-button>
-        </ion-col>
-      </ion-row>
+      <!-- <input class="input-file" (change)="capturarFile($event)" type="file" accept="image/*"> -->
       <ion-row>
         <ion-col>
           <ion-button type="input" color="primary" shape="round" expand="block" color="tertiary">
@@ -47,6 +40,13 @@
         </ion-col>
       </ion-row>
     </form>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="takePhoto()" type="input" color="primary" shape="round" expand="block" color="tertiary">
+          Tomar foto
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-list>
 
 </ion-content>

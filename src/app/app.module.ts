@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 // plugins
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
-import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+//import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+// import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     SQLite,
-    SQLitePorter,
+    //SQLitePorter,
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy

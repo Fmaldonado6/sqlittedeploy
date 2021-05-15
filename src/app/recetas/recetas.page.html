@@ -1,11 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
+    <ion-item color="tertiary">
       <!-- <ion-buttons>
         <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
       </ion-buttons> -->
-      <ion-title> Recetas </ion-title>
-      <ion-button (click)="goToAdd()" side="end">Agregar Receta</ion-button>
+      <ion-title > Recetas </ion-title>
+      <!-- <p>Network status: {{this.networkStatus.connected ? 'Online' : 'Offline'}}</p> -->
+      <ion-button (click)="goToAdd()" side="end" color="light">Agregar Receta</ion-button>
     </ion-item>
   </ion-toolbar>
 </ion-header>

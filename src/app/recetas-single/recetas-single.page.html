@@ -18,40 +18,38 @@
     <ion-col>
     <ion-img style="height:200px;" [src]="previsualizacion" ></ion-img>
     </ion-col>
-
     </ion-row>
 
 <ion-row>
 
-    <ion-col>
-    <ion-list>
+  <ion-col>
+      <form [formGroup]="recipeForm" (ngSubmit)="storeNewRecipe()">
+        <ion-item >
+          <ion-input formControlName="titulo" placeholder="{{receta.titulo}}"></ion-input>
+        </ion-item>
 
-      <ion-item >
-        <ion-input value="{{receta.titulo}}"></ion-input>
-      </ion-item>
-      <ion-item >
-        <ion-input value="{{receta.ingredientes}}"></ion-input>
-      </ion-item>
-    <ion-item >
-    <ion-input value="{{receta.procedimiento}}"></ion-input>
-    </ion-item>
-    </ion-list>
-    </ion-col>
+        <ion-item >
+          <ion-input formControlName="ingredientes" placeholder="{{receta.ingredientes}}"></ion-input>
+        </ion-item>
 
+        <ion-item >
+          <ion-input formControlName="procedimiento" placeholder="{{receta.procedimiento}}"></ion-input>
+        </ion-item>
 
-    </ion-row>
-    </ion-grid>
-
-    <ion-col>
-      <ion-button> UPDATE</ion-button>
-    </ion-col>
-
-
-    <ion-grid>
-      <ion-col>
-
-        <h3>Imagen de la receta</h3>
-        <input class="input-file" (change)="capturarFile($event)" type="file">
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="round" expand="block" color="tertiary"> UPDATE</ion-button>
+        </ion-col>
+      </form>
       </ion-col>
-    </ion-grid>
-</ion-content>
+    </ion-row>
+  </ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="takePhoto()" type="input" color="primary" shape="round" expand="block" color="tertiary">
+          Tomar foto
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    </ion-content >

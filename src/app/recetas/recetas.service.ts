@@ -81,8 +81,8 @@ export class RecetasService {
       );
   }
 
-  updateReceta(recetaId: string, receta: receta) {
-    const url = environment.fireUrl + `recetas/${recetaId}.json`;
+  updateReceta(id: string, receta: receta) {
+    const url = environment.fireUrl + `recetas/${id}.json`;
     this.http.put<any>(url, { ... receta }).subscribe((data) => {
       console.log(data);
     });
