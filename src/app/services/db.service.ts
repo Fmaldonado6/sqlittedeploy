@@ -1,3 +1,6 @@
+//ESTE SERVICE ES SOLO DE EJEMPLO PARA PODER EJECUTAR NUESTRAS CONSULTAS
+//NO SE USA ACTIVAMENTE, ES MÁS COMO UN ARCHIVO DE DOCUMENTACIÓN, AL FINAL DEL PROYECTO LIMPIAREMOS EL CÓDIGO PARA
+//HARERLO LO MÁS EFICIENTE POSIBLE
 
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
@@ -112,7 +115,7 @@ export class DbService {
   // Update
   updateCita(id, cita: Cita) {
     let data = [cita.usuario_id, cita.nombre, cita.fecha, cita.hora, cita.sintomas];
-    return this.storage.executeSql(`UPDATE citas SET usuario_id = ?, nombre = ?, fecha = ?, hora = ?, sintomas = ? WHERE id = ${id}`, data)
+    return this.storage.executeSql(`UPDATE citas SET usuario_id = ?, nombre = ?, fecha = ?, hora = ?, sintomas = ? WHERE usuario_id = ${id}`, data)
     .then(data => {
       this.getCitas();
     })
@@ -120,7 +123,7 @@ export class DbService {
 
   // Delete
   deleteCita(id) {
-    return this.storage.executeSql('DELETE FROM citas WHERE id = ?', [id])
+    return this.storage.executeSql('DELETE FROM cita WHERE id = ?', [id])
     .then(_ => {
       this.getCitas();
     });

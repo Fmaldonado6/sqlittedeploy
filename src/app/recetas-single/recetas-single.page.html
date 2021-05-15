@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-buttons>
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+
+        <ion-title *ngIf="!isLoading">Receta</ion-title>
+
+    </ion-item>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-grid *ngIf="!isLoading">
+    <ion-row>
+    <ion-col>
+    <ion-img style="height:200px;" [src]="previsualizacion" ></ion-img>
+    </ion-col>
+
+    </ion-row>
+
+<ion-row>
+
+    <ion-col>
+    <ion-list>
+
+      <ion-item >
+        <ion-input value="{{receta.titulo}}"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input value="{{receta.ingredientes}}"></ion-input>
+      </ion-item>
+    <ion-item >
+    <ion-input value="{{receta.procedimiento}}"></ion-input>
+    </ion-item>
+    </ion-list>
+    </ion-col>
+
+
+    </ion-row>
+    </ion-grid>
+
+    <ion-col>
+      <ion-button> UPDATE</ion-button>
+    </ion-col>
+
+
+    <ion-grid>
+      <ion-col>
+
+        <h3>Imagen de la receta</h3>
+        <input class="input-file" (change)="capturarFile($event)" type="file">
+      </ion-col>
+    </ion-grid>
+</ion-content>

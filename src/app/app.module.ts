@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,9 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     SQLite,

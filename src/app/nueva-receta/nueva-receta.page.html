@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item  color="tertiary">
+      <ion-buttons>
+        <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Nueva Receta
+      </ion-title>
+    </ion-item>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="full">
+    <form [formGroup]="recipeForm" (ngSubmit)="storeNewRecipe()">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="titulo" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Ingredientes</ion-label>
+        <ion-input formControlName="ingredientes" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Procedimiento</ion-label>
+        <ion-input formControlName="procedimiento" type="text" required></ion-input>
+      </ion-item>
+
+      <input class="input-file" (change)="capturarFile($event)" type="file" accept="image/*">
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="takePhoto()" type="input" color="primary" shape="round" expand="block" color="tertiary">
+            Tomar foto
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="input" color="primary" shape="round" expand="block" color="tertiary">
+            Agregar Receta
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+
+</ion-content>
