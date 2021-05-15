@@ -16,7 +16,6 @@ export class NuevaRecetaPage implements OnInit {
       public formBuilder: FormBuilder,
       private router: Router,
     private cameraService: CameraService,
-      private recetasService: RecetasService
     ) { }
 
   recipeForm: FormGroup;
