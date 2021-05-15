@@ -31,10 +31,17 @@ export class RecetasSinglePage implements OnInit {
   ) {
   }
 
+  fav:boolean;
+
+  change(){
+    this.fav= !this.fav;
+  }
+
   recipeForm: FormGroup;
   Receta: receta;
 
   ngOnInit() {
+      this.fav=true;
       //construye el form inicianizandolo con valores vacíos
       this.recipeForm = this.formBuilder.group({
         titulo: [''],

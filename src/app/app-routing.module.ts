@@ -5,12 +5,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recetas', pathMatch: 'full' },
+  { path: '', redirectTo: 'tabs', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  {
-    path: 'citas/:id',
-    loadChildren: () => import('./citas/citas.module').then( m => m.CitasPageModule)
-  },
   {
     path: 'recetas',
     loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
@@ -22,6 +18,14 @@ const routes: Routes = [
   {
     path: 'new',
     component: NuevaRecetaPage,
+  },
+  {
+    path: 'fav',
+    loadChildren: () => import('./fav/fav.module').then( m => m.FavPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   }
 ];
 

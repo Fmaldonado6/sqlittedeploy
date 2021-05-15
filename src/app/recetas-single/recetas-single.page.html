@@ -1,55 +1,84 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
+    <ion-item color="tertiary">
       <ion-buttons>
         <ion-back-button defaultHref="/"></ion-back-button>
       </ion-buttons>
 
-        <ion-title *ngIf="!isLoading">Receta</ion-title>
-
+      <ion-title *ngIf="!isLoading">Receta</ion-title>
     </ion-item>
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content class="ion-text-center">
+<ion-content>
   <ion-grid *ngIf="!isLoading">
     <ion-row>
-    <ion-col>
-    <ion-img style="height:200px;" [src]="previsualizacion" ></ion-img>
-    </ion-col>
+      <ion-col>
+        <ion-img style="height: 400px" [src]="previsualizacion"></ion-img>
+      </ion-col>
     </ion-row>
 
-<ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="recipeForm" (ngSubmit)="storeNewRecipe()">
+          <ion-item>
+            <ion-label position="floating">Nombre de la Receta</ion-label>
+            <ion-input
+              formControlName="titulo"
+              placeholder="{{receta.titulo}}"
+            ></ion-input>
+          </ion-item>
 
-  <ion-col>
-      <form [formGroup]="recipeForm" (ngSubmit)="storeNewRecipe()">
-        <ion-item >
-          <ion-input formControlName="titulo" placeholder="{{receta.titulo}}"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label position="floating">Ingredientes:</ion-label>
+            <ion-input
+              formControlName="ingredientes"
+              placeholder="{{receta.ingredientes}}"
+            ></ion-input>
+          </ion-item>
 
-        <ion-item >
-          <ion-input formControlName="ingredientes" placeholder="{{receta.ingredientes}}"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label position="floating">Procedimiento:</ion-label>
+            <ion-input
+              formControlName="procedimiento"
+              placeholder="{{receta.procedimiento}}"
+            ></ion-input>
+          </ion-item>
 
-        <ion-item >
-          <ion-input formControlName="procedimiento" placeholder="{{receta.procedimiento}}"></ion-input>
-        </ion-item>
-
-        <ion-col>
-          <ion-button type="submit" color="primary" shape="round" expand="block" color="tertiary"> UPDATE</ion-button>
-        </ion-col>
-      </form>
+          <ion-col>
+            <ion-button
+              type="submit"
+              color="primary"
+              shape="round"
+              expand="block"
+              color="tertiary"
+            >
+              UPDATE</ion-button
+            >
+          </ion-col>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-    <ion-row>
-      <ion-col>
-        <ion-button (click)="takePhoto()" type="input" color="primary" shape="round" expand="block" color="tertiary">
-          Tomar foto
-        </ion-button>
-      </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button
+        (click)="takePhoto()"
+        type="input"
+        color="primary"
+        shape="round"
+        expand="block"
+        color="tertiary"
+      >
+        Tomar foto
+      </ion-button>
+    </ion-col>
+  </ion-row>
 
-    </ion-content >
+  <ion-fab vertical="start" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="change()" color="warning" size="small">
+      <ion-icon name="{{this.fav ? 'star' : 'star-outline'}}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

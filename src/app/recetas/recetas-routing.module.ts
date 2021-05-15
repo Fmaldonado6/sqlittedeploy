@@ -11,7 +11,12 @@ const routes: Routes = [
   {
     path: ':id',
     loadChildren: () => import('../recetas-single/recetas-single.module').then( m => m.RecetasSinglePageModule)
-  }
+  },
+  // {
+  //   path: 'fav',
+  //   loadChildren: () => import('../fav/fav.module').then( m => m.FavPageModule)
+  // },
+
 ];
 
 @NgModule({

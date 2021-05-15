@@ -5,6 +5,7 @@ const { Network } = Plugins;
 @Injectable({
   providedIn: 'root'
 })
+
 export class NetworkService {
   startListening(){
     let handler = Network.addListener('networkStatusChange', (status) => {

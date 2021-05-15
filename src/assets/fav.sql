@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS fav(
+    id TEXT PRIMARY KEY
+);
+-- INSERT or IGNORE INTO fav(id) VALUES ('-M_fNPV4r5K1n8Gcknmg');

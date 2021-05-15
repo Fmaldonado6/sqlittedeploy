@@ -17,17 +17,17 @@
   <ion-list lines="full">
     <form [formGroup]="recipeForm" (ngSubmit)="storeNewRecipe()">
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
+        <ion-label>Nombre</ion-label>
         <ion-input formControlName="titulo" type="text" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Ingredientes</ion-label>
+        <ion-label>Ingredientes</ion-label>
         <ion-input formControlName="ingredientes" type="text" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Procedimiento</ion-label>
+        <ion-label>Procedimiento</ion-label>
         <ion-input formControlName="procedimiento" type="text" required></ion-input>
       </ion-item>
 

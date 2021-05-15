@@ -1,18 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-item color="tertiary">
-      <!-- <ion-buttons>
-        <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
-      </ion-buttons> -->
-      <ion-title > Recetas </ion-title>
-      <!-- <p *ngIf="this.networkStatus.connected">Network status: {{this.networkStatus.connected ? 'Online' : 'Offline'}}</p> -->
-      <ion-button (click)="goToAdd()" side="end" color="light">Agregar Receta</ion-button>
-    </ion-item>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
   <ion-list>
+
         <ion-card *ngFor="let rest of recetas" [routerLink]="['./', rest.id]">
           <ion-row>
             <ion-col>
@@ -24,6 +14,33 @@
           </ion-row>
         </ion-card>
 
-
   </ion-list>
+
+  <!-- fab que te manda a favoritos -->
+  <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="goToFav()" color="tertiary">
+      <ion-icon name="bookmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <!-- https://ionicframework.com/docs/api/fab -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goToAdd()" color="light">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Segment in a toolbar -->
+<!-- <ion-toolbar>
+  <ion-segment (ionChange)="segmentChanged($event)" value="camera" mode="ios">
+    <ion-segment-button value="camera">
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="bookmark">
+      <ion-icon name="bookmark"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar> -->
+
 </ion-content>
