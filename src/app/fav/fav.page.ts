@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavdbService } from './../services/favdb.service'
+import { FavdbService, ListaId } from './../services/favdb.service'
 
 import { ActivatedRoute, Router } from "@angular/router";
 import { RecetasService } from '../recetas/recetas.service';
@@ -24,13 +24,15 @@ export class FavPage implements OnInit {
     //   //DESPLIEGA EN PANTALLA CAMBIANDO VARIABLES OBSERVABLES
     // })
   }
-  Data : any[]=[];
+  Data : ListaId[]=[];
+  help:number;
 
   recetas: receta[] = [];
   recetasSub: Subscription;
   isLoading = false;
 
   ngOnInit() {
+    this.help=0;
     this.db.dbState().subscribe((res) => {
       if (res) {
         this.db.fetchLista().subscribe((item) => {
@@ -38,5 +40,10 @@ export class FavPage implements OnInit {
         });
       }
     });
+    // if(this.Data[0].id == "-M_i1VtmBc5KBug5khMv"){
+    //   this.help = 1;
+    // }
   }
+
+
 }

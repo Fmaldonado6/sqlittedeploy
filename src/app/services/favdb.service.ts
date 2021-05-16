@@ -35,6 +35,8 @@ export class FavdbService {
     });
   }
 
+
+
   dbState() {
     return this.isDbReady.asObservable();
   }
@@ -57,13 +59,30 @@ export class FavdbService {
     });
   }
 
+
+  getListaF(id):boolean{
+    let b:boolean=false;
+     this.storage.executeSql('SELECT * FROM fav', []).then(res => {
+      if (res.rows.length > 0) {
+        for (var i = 0; i < res.rows.length; i++) {
+          if(res.rows.item(i).id==id){
+            b=true;
+          }
+        }
+      }
+    });
+
+    return b;
+  }
+
+
   // Get list
   getLista(){
     return this.storage.executeSql('SELECT * FROM fav', []).then(res => {
-      let items: ListaId[] = [];//esta es la lista de favoritos
-      if (res.rows.length > 0) {//si existen datos en la DB, entonces:
-        for (var i = 0; i < res.rows.length; i++) {//por cada dato
-          items.push({//asigna su id a un nuevo elemento de items
+      let items: ListaId[] = [];                                          //esta es la lista de favoritos
+      if (res.rows.length > 0) {                                          //si existen datos en la DB, entonces:
+        for (var i = 0; i < res.rows.length; i++){                        //por cada dato    if
+          items.push({                                                    //asigna su id a un nuevo elemento de items
             id: res.rows.item(i).id
            });
         }
@@ -100,3 +119,22 @@ export class FavdbService {
 
 //end
 }
+
+
+
+
+
+/*// Get list
+  getLista(){
+    return this.storage.executeSql('SELECT * FROM fav', []).then(res => {
+      let items: ListaId[] = [];                                          //esta es la lista de favoritos
+      if (res.rows.length > 0) {                                          //si existen datos en la DB, entonces:
+        for (var i = 0; i < res.rows.length; i++){                        //por cada dato    if
+          items.push({                                                    //asigna su id a un nuevo elemento de items
+            id: res.rows.item(i).id
+           });
+        }
+      }
+      this.favLista.next(items);
+    });
+  }*/

@@ -77,8 +77,14 @@
   </ion-row>
 
   <ion-fab vertical="start" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="change()" color="warning" size="small">
-      <ion-icon name="{{this.fav ? 'star' : 'star-outline'}}"></ion-icon>
+    <ion-fab-button color="warning" size="small">
+      <ion-icon name="{{fav ? 'star' : 'star-outline'}}"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <ion-button
+        (click)="borrar()"
+      >
+        Borrar
+      </ion-button>
 </ion-content>
